@@ -1,13 +1,14 @@
 package com.example.hirenamaliyar.attendenceemployee;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.widget.EditText;
 
-public class Person_details extends AppCompatActivity {
+public class Person_details extends AppCompatActivity
+{
+
+    EditText fullname,contact_no,salary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
