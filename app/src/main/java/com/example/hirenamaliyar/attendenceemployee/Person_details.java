@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 public class Person_details extends AppCompatActivity
 {
 
-//helloo testing
+//helloo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
