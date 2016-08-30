@@ -16,4 +16,23 @@
     </string>
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="title_persondetails_list">Items</string>
+    <string name="title_persondetails_detail">person_details Detail</string>
+    <string name="title_activity_person_details">Person details</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="fullname">Full name</string>
+    <string name="contact_no">Contact no</string>
+    <string name="work_dept">Work department</string>
+    <string name="designation">Designation</string>
+    <string name="hiredate">Hire date</string>
+    <string name="Gender">Gender</string>
+    <string name="birth_date">Birth date</string>
+    <string name="salary">Salary</string>
+    <string name="emirates_id">Emirates id</string>
+    <string name="passport_no">Passport no</string>
+    <string name="nationality">Nationality</string>
+    <string name="image_upload">Image upload</string>
+
+
 </resources>
