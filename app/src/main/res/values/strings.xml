@@ -35,13 +35,16 @@
     <string name="image_upload">Image upload</string>
     <string name="email">Email</string>
 
-    <string name="err_msg_name">Enter your full name</string>
-    <string name="err_msg_email">Enter valid email address</string>
-    <string name="err_msg_contact">Enter your contact number</string>
-    <string name="err_msg_emirates_id">Enter your emirates id</string>
-    <string name="err_msg_salary">Enter your salary</string>
-    <string name="err_msg_passport_no">Enter your passport no</string>
-    <string name="err_msg_nationality">Enter your nationality</string>
+    <string name="err_msg_name">Please Enter your full name</string>
+    <string name="err_msg_gender">Please Enter your gender</string>
+    <string name="err_msg_email">Please Enter valid email address</string>
+    <string name="err_msg_contact">Please Enter your contact number</string>
+    <string name="err_msg_emirates_id">Please Enter your emirates id</string>
+    <string name="err_msg_salary">Please Enter your salary</string>
+    <string name="err_msg_passport_no">Please Enter your passport no</string>
+    <string name="err_msg_nationality">Please Enter your nationality</string>
+    <string name="err_msg_dob">Please Enter your date of birth</string>
+    <string name="err_msg_hire_date">Please Enter your date of hire</string>
 
 
 </resources>

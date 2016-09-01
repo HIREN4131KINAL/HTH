@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/holo_orange_light"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.hirenamaliyar.attendenceemployee.Person_details"
@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
@@ -25,7 +26,8 @@
                 android:id="@+id/et_fullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/fullname" />
+                android:hint="@string/fullname"
+                android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -44,7 +46,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
+
 
             <Spinner
                 android:id="@+id/spin_work_dept"
@@ -70,7 +74,8 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_contact_no"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
             <EditText
                 android:id="@+id/et_contact_no"
@@ -83,29 +88,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/til_gender"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
 
                 <EditText
                     android:id="@+id/et_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:editable="false"
                     android:hint="@string/Gender" />
             </android.support.design.widget.TextInputLayout>
 
 
             <RadioGroup
-                android:layout_weight="1"
                 android:id="@+id/rg_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/edname"
+                android:layout_gravity="center"
+                android:layout_weight="0"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="2">
@@ -114,7 +121,6 @@
                     android:id="@+id/radio0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true"
                     android:text="MALE" />
 
                 <RadioButton
@@ -123,6 +129,34 @@
                     android:layout_height="wrap_content"
                     android:text="FEMALE" />
             </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_date_of_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.9">
+
+                <EditText
+                    android:id="@+id/et_date_of_birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="@string/birth_date" />
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_calander" />
+
         </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -137,6 +171,33 @@
                 android:hint="@string/emirates_id" />
         </android.support.design.widget.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_date_of_hire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.9">
+
+                <EditText
+                    android:id="@+id/et_date_of_hire"
+                    android:layout_width="match_parent"
+                    android:editable="false"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hiredate" />
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_calander" />
+
+        </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_nationality"
@@ -174,23 +235,23 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/passport_no" />
         </android.support.design.widget.TextInputLayout>
+        <!--
+                <DatePicker
+                    android:id="@+id/dp_hire_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <DatePicker
-            android:id="@+id/et_hire_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TimePicker
-            android:id="@+id/et_birth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/birth_date" />
+                <DatePicker
+                    android:id="@+id/dp_birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/birth_date" />-->
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:layout_marginTop="10dp"
             android:weightSum="2">
 
