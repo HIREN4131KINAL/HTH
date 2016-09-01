@@ -33,6 +33,15 @@
     <string name="passport_no">Passport no</string>
     <string name="nationality">Nationality</string>
     <string name="image_upload">Image upload</string>
+    <string name="email">Email</string>
+
+    <string name="err_msg_name">Enter your full name</string>
+    <string name="err_msg_email">Enter valid email address</string>
+    <string name="err_msg_contact">Enter your contact number</string>
+    <string name="err_msg_emirates_id">Enter your emirates id</string>
+    <string name="err_msg_salary">Enter your salary</string>
+    <string name="err_msg_passport_no">Enter your passport no</string>
+    <string name="err_msg_nationality">Enter your nationality</string>
 
 
 </resources>
