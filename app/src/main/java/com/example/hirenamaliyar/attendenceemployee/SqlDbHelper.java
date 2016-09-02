@@ -2,9 +2,7 @@ package com.example.hirenamaliyar.attendenceemployee;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.ContactsContract;
 
 public class SqlDbHelper extends SQLiteOpenHelper {
 
@@ -24,9 +22,10 @@ public class SqlDbHelper extends SQLiteOpenHelper {
     public static final String KEY_PassportNo = "passport_no";
     public static final String KEY_Nationality = "nationality";
 
-    public SqlDbHelper(Context context, String databaseName, Object o, int databaseVersion) {
+    public SqlDbHelper(Context context, String databaseName,SQLiteDatabase.CursorFactory factory,
+                       int version) {
 
-        super(context, DATABASE_NAME, null, 1);
+        super(context, databaseName, factory, version);
 
     }
 
