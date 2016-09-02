@@ -24,9 +24,9 @@ public class SqlDbHelper extends SQLiteOpenHelper {
     public static final String KEY_PassportNo = "passport_no";
     public static final String KEY_Nationality = "nationality";
 
-    public SqlDbHelper(Context context, String databaseName, Object o, int databaseVersion) {
+    public SqlDbHelper(Context context, String databaseName, CursorFactory cursorFactory, int databaseVersion) {
 
-        super(context, DATABASE_NAME, null, 1);
+        super(context, databaseName, cursorFactory, databaseVersion);
 
     }
 
