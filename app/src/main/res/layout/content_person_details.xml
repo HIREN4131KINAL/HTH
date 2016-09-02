@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/holo_orange_light"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.hirenamaliyar.attendenceemployee.Person_details"
@@ -14,19 +14,41 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/et_fullname"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_fullname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/fullname" />
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/fullname"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
+
 
             <Spinner
                 android:id="@+id/spin_work_dept"
@@ -38,122 +60,202 @@
                 android:spinnerMode="dialog"
                 tools:ignore="ObsoleteLayoutParam" />
 
-
             <Spinner
-                android:id="@+id/spin_offer_property"
+                android:id="@+id/spin_designation"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
                 android:layout_alignParentLeft="true"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:spinnerMode="dialog"
                 tools:ignore="ObsoleteLayoutParam" />
-            >
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/et_contact_no"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_contact_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/contact_no" />
+            android:layout_marginTop="10dp">
 
-        <DatePicker
-            android:id="@+id/et_hire_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
-
-        <EditText
-            android:id="@+id/et_gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/Gender" />
-
-        <TimePicker
-            android:id="@+id/et_birth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/birth_date" />
-
-
-        <EditText
-            android:id="@+id/et_salary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/salary" />
+            <EditText
+                android:id="@+id/et_contact_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/contact_no"
+                android:inputType="phone" />
+        </android.support.design.widget.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <EditText
-                android:id="@+id/et_emirates_id"
-                android:layout_width="wrap_content"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_gender"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:hint="@string/Gender" />
+                android:layout_weight="2">
 
+                <EditText
+                    android:id="@+id/et_gender"
+                    android:layout_width="match_parent"
+                    android:inputType="text"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Gender" />
+            </android.support.design.widget.TextInputLayout>
 
 
             <RadioGroup
-                android:id="@+id/radioGroup1"
+                android:id="@+id/rg_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/edname"
-                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_weight="0"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="2">
+
                 <RadioButton
                     android:id="@+id/radio0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:checked="true"
                     android:text="MALE" />
 
                 <RadioButton
                     android:id="@+id/radio1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
                     android:text="FEMALE" />
-
             </RadioGroup>
-
-
-
         </LinearLayout>
-
-
-        <EditText
-            android:id="@+id/et_passport_no"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/passport_no" />
-
-        <EditText
-            android:id="@+id/et_nationality"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/nationality" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_date_of_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.9">
+
+                <EditText
+                    android:id="@+id/et_date_of_birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:hint="@string/birth_date" />
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_calander" />
+
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_emirates_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_emirates_id"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:hint="@string/emirates_id" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_date_of_hire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.9">
+
+                <EditText
+                    android:id="@+id/et_date_of_hire"
+                    android:layout_width="match_parent"
+                    android:inputType="date"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hiredate" />
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_calander" />
+
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_nationality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_nationality"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:hint="@string/nationality" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_salary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_salary"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:hint="@string/salary" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_passport_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_passport_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/passport_no" />
+        </android.support.design.widget.TextInputLayout>
+        <!--
+                <DatePicker
+                    android:id="@+id/dp_hire_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <DatePicker
+                    android:id="@+id/dp_birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/birth_date" />-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:layout_marginTop="10dp"
             android:weightSum="2">
 
