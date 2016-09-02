@@ -13,7 +13,7 @@ public class SqlHandler {
     SqlDbHelper dbHelper;
 
     public SqlHandler(Context context) {
-
+        this.context = context;
         dbHelper = new SqlDbHelper(context, DATABASE_NAME, null,
                 DATABASE_VERSION);
         sqlDatabase = dbHelper.getWritableDatabase();

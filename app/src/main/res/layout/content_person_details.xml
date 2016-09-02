@@ -100,8 +100,8 @@
                 <EditText
                     android:id="@+id/et_gender"
                     android:layout_width="match_parent"
+                    android:inputType="text"
                     android:layout_height="wrap_content"
-                    android:editable="false"
                     android:hint="@string/Gender" />
             </android.support.design.widget.TextInputLayout>
 
@@ -147,7 +147,7 @@
                     android:id="@+id/et_date_of_birth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:editable="false"
+                    android:inputType="date"
                     android:hint="@string/birth_date" />
             </android.support.design.widget.TextInputLayout>
 
@@ -167,6 +167,7 @@
             <EditText
                 android:id="@+id/et_emirates_id"
                 android:layout_width="match_parent"
+                android:inputType="text"
                 android:layout_height="wrap_content"
                 android:hint="@string/emirates_id" />
         </android.support.design.widget.TextInputLayout>
@@ -186,7 +187,7 @@
                 <EditText
                     android:id="@+id/et_date_of_hire"
                     android:layout_width="match_parent"
-                    android:editable="false"
+                    android:inputType="date"
                     android:layout_height="wrap_content"
                     android:hint="@string/hiredate" />
             </android.support.design.widget.TextInputLayout>
@@ -207,6 +208,7 @@
             <EditText
                 android:id="@+id/et_nationality"
                 android:layout_width="match_parent"
+                android:inputType="text"
                 android:layout_height="wrap_content"
                 android:hint="@string/nationality" />
         </android.support.design.widget.TextInputLayout>
@@ -219,6 +221,7 @@
             <EditText
                 android:id="@+id/et_salary"
                 android:layout_width="match_parent"
+                android:inputType="text"
                 android:layout_height="wrap_content"
                 android:hint="@string/salary" />
         </android.support.design.widget.TextInputLayout>
@@ -233,6 +236,7 @@
                 android:id="@+id/et_passport_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:hint="@string/passport_no" />
         </android.support.design.widget.TextInputLayout>
         <!--

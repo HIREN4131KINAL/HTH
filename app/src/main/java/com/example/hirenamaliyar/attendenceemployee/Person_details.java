@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 public class Person_details extends AppCompatActivity {
     private EditText et_fullname, et_email, et_contact_no, et_salary, et_emirates_id, et_passport_no, et_nationality, et_gender, et_date_of_birth, et_date_of_hire;
+    private String str_fullname, str_email, str_contact_no, str_salary, str_emirates_id, str_passport_no, str_nationality, str_gender, str_date_of_birth, str_date_of_hire, str_work_dept, str_designation;
     private TextInputLayout til_fullname, til_contact_no, til_salary, til_emirates_id, til_passport_no, til_nationality, til_email, til_gender, til_date_of_birth, til_date_of_hire;
     private RadioGroup rg_gender;
     private Spinner spin_work_dept, spin_designation;
@@ -27,7 +29,6 @@ public class Person_details extends AppCompatActivity {
     private RadioButton radio0, radio1;
     Boolean chk_work_dept = false;
     Boolean chk_designation = false;
-    String r_gender;
     String[] work_dept = {
             "PHP",
             "ANDROID",
@@ -161,44 +162,68 @@ public class Person_details extends AppCompatActivity {
 
         if (!validateFullName()) {
             return;
-        }
-
-        if (!validateEmail()) {
+        } else if (!validateEmail()) {
             return;
-        }
-        if (!validateWorkDept()) {
+        } else if (!validateWorkDept()) {
 
             return;
-        }
-        if (!validateDesignation()) {
+        } else if (!validateDesignation()) {
 
             return;
-        }
-        if (!validateContactNo()) {
+        } else if (!validateContactNo()) {
             return;
-        }
-        if (!validateGender()) {
+        } else if (!validateGender()) {
             return;
-        }
-        if (!validateBirthDate()) {
+        } else if (!validateBirthDate()) {
             return;
-        }
-        if (!validateDateOfHire()) {
+        } else if (!validateDateOfHire()) {
             return;
-        }
-        if (!validateEmiratsId()) {
+        } else if (!validateEmiratsId()) {
             return;
-        }
+        } else if (!validateNationality()) {
+            return;
+        } else if (!validatePassportNo()) {
+            return;
+        } else if (!validateSalary()) {
+            return;
+        } else {
+            Toast.makeText(Person_details.this, "Submit successfully", Toast.LENGTH_SHORT).show();
+            str_fullname = et_fullname.getText().toString();
+            str_email = et_email.getText().toString();
+            str_contact_no = et_contact_no.getText().toString();
+            str_salary = et_salary.getText().toString();
+            str_emirates_id = et_emirates_id.getText().toString();
+            str_passport_no = et_passport_no.getText().toString();
+            str_nationality = et_nationality.getText().toString();
+            str_gender = et_gender.getText().toString();
+            str_date_of_birth = et_date_of_birth.getText().toString();
+            str_date_of_hire = et_date_of_hire.getText().toString();
+            str_work_dept = spin_work_dept.getSelectedItem().toString();
+            str_designation = spin_designation.getSelectedItem().toString();
 
-        if (!validateNationality()) {
-            return;
-        }
+            Log.e("fullname: ", str_fullname);
+            Log.e("email: ", str_email);
+            Log.e("contact no: ", str_contact_no);
+            Log.e("salary: ", str_salary);
+            Log.e("emirates id: ", str_emirates_id);
+            Log.e("passport no: ", str_passport_no);
+            Log.e("nationality: ", str_nationality);
+            Log.e("gender: ", str_gender);
+            Log.e("date of birth: ", str_date_of_birth);
+            Log.e("date of hire: ", str_date_of_hire);
+            Log.e("work department: ", str_work_dept);
+            Log.e("designation: ", str_designation);
 
-        if (!validatePassportNo()) {
-            return;
-        }
-        if (!validateSalary()) {
-            return;
+
+            SqlHandler sqlHandler = new SqlHandler(getApplicationContext());
+
+
+            //Database insert query
+            String insert = "INSERT INTO EmployeeTable(name,email,work_department,designation,phone_number,date_of_birth,date_of_hire,gender,salary,emirats_id,passport_no,nationality) values ('" + str_fullname + "','" + str_email + "','" + str_work_dept + "','" + str_designation + "','" + str_contact_no + "','" + str_date_of_birth + "','" + str_date_of_hire + "','" + str_gender + "','" + str_salary + "','" + str_emirates_id + "','" + str_passport_no + "','" + str_nationality + "')";
+
+            sqlHandler.executeQuery(insert);
+
+
         }
 
     }
@@ -315,6 +340,7 @@ public class Person_details extends AppCompatActivity {
             spin_work_dept.performClick();
             return false;
         }
+
         return true;
     }
 
