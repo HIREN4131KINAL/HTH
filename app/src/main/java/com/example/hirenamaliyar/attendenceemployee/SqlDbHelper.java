@@ -22,7 +22,7 @@ public class SqlDbHelper extends SQLiteOpenHelper {
     public static final String KEY_PassportNo = "passport_no";
     public static final String KEY_Nationality = "nationality";
 
-    public SqlDbHelper(Context context, String databaseName,SQLiteDatabase.CursorFactory factory,
+    public SqlDbHelper(Context context, String databaseName, SQLiteDatabase.CursorFactory factory,
                        int version) {
 
         super(context, databaseName, factory, version);
