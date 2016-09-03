@@ -70,7 +70,7 @@ public class Person_details extends AppCompatActivity implements DatePickerDialo
         setSupportActionBar(toolbar);
         LoaduiElements();
         LoadUILisners();
-        //calender fo
+        //FOR BIRTHDATE
         myCalendar = Calendar.getInstance();
         date = new DatePickerDialog.OnDateSetListener() {
 
@@ -86,7 +86,7 @@ public class Person_details extends AppCompatActivity implements DatePickerDialo
             }
 
         };
-
+        //FOR HIRE DATE
         myCalendar_h = Calendar.getInstance();
         date_h = new DatePickerDialog.OnDateSetListener() {
             @Override
