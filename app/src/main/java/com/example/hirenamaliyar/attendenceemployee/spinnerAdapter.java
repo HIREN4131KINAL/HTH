@@ -18,8 +18,6 @@ public class spinnerAdapter extends ArrayAdapter<String> {
         int count = super.getCount();
 
         return count > 0 ? count - 1 : count;
-
-
     }
 
 

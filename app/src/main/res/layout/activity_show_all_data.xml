@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.hirenamaliyar.attendenceemployee.Person_details">
+    tools:context="com.example.hirenamaliyar.attendenceemployee.ShowAllData">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
+        android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -22,38 +22,17 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="snap|scroll|enterAlways|enterAlwaysCollapsed">
 
-
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/transparent"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            <ImageView
-                android:id="@+id/iv_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center|top"
-                android:layout_margin="30dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/logo_large" />
-
-            <!--  <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_marginBottom="10dp"
-                  android:textSize="25sp"
-                  android:layout_marginTop="15dp"
-                  android:textStyle="italic"
-                  android:layout_gravity="center|bottom"
-                  android:layout_height="wrap_content"
-                  android:text="Employee Details" />-->
         </android.support.design.widget.CollapsingToolbarLayout>
-
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_person_details" />
+    <include layout="@layout/content_show_all_data" />
 
 
 </android.support.design.widget.CoordinatorLayout>

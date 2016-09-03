@@ -1,6 +1,7 @@
 package com.example.hirenamaliyar.attendenceemployee;
 
 import android.app.DatePickerDialog;
+import android.nfc.tech.NfcBarcode;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -68,6 +69,8 @@ public class Person_details extends AppCompatActivity implements DatePickerDialo
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         LoaduiElements();
         LoadUILisners();
         //FOR BIRTHDATE
@@ -205,21 +208,20 @@ public class Person_details extends AppCompatActivity implements DatePickerDialo
         select_hiredate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Person_details.this, "Helloo", Toast.LENGTH_SHORT).show();
-                new DatePickerDialog(Person_details.this,date_h,myCalendar_h.get(Calendar.YEAR),
-                        myCalendar_h.get(Calendar.MONTH),myCalendar_h.get(Calendar.DAY_OF_MONTH)).show();
+                new DatePickerDialog(Person_details.this, date_h, myCalendar_h.get(Calendar.YEAR),
+                        myCalendar_h.get(Calendar.MONTH), myCalendar_h.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
     }
-    private void updateLabel_bdate()
-    {
+
+    private void updateLabel_bdate() {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         et_date_of_birth.setText(sdf.format(myCalendar.getTime()));
     }
-    private void updateLabel_hdate()
-    {
+
+    private void updateLabel_hdate() {
         String myFormat_b = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf_b = new SimpleDateFormat(myFormat_b, Locale.US);
 
@@ -229,8 +231,7 @@ public class Person_details extends AppCompatActivity implements DatePickerDialo
     /**
      * Validating form
      */
-    private void submitForm()
-    {
+    private void submitForm() {
         if (!validateFullName()) {
             return;
         } else if (!validateEmail()) {

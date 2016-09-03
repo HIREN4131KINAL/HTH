@@ -13,7 +13,7 @@ public class SqlDbHelper extends SQLiteOpenHelper {
     public static final String KEY_FullName = "name";
     public static final String KEY_Email = "email";
     public static final String KEY_WorkDept = "work_department";
-    public static final String KEY_Designation = "designation";
+    public static final String KEY_Designation = "designation";                    
     public static final String KEY_ContactNo = "phone_number";
     public static final String KEY_DateOfBirth = "date_of_birth";
     public static final String KEY_DateOfHire = "date_of_hire";
