@@ -1,7 +1,7 @@
 package com.example.hirenamaliyar.attendenceemployee;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
-
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,13 +13,19 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class Person_details extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
+public class Person_details extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private EditText et_fullname, et_email, et_contact_no, et_salary, et_emirates_id, et_passport_no, et_nationality, et_gender, et_date_of_birth, et_date_of_hire;
     private String str_fullname, str_email, str_contact_no, str_salary, str_emirates_id, str_passport_no, str_nationality, str_gender, str_date_of_birth, str_date_of_hire, str_work_dept, str_designation;
     private TextInputLayout til_fullname, til_contact_no, til_salary, til_emirates_id, til_passport_no, til_nationality, til_email, til_gender, til_date_of_birth, til_date_of_hire;
@@ -49,6 +55,12 @@ public class Person_details extends AppCompatActivity {
             "Sr PHOTOSHOP developer"
     };
 
+    ImageButton select_birthdate, select_hiredate;
+
+    Calendar myCalendar, myCalendar_h;
+
+    DatePickerDialog.OnDateSetListener date, date_h;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +70,35 @@ public class Person_details extends AppCompatActivity {
         setSupportActionBar(toolbar);
         LoaduiElements();
         LoadUILisners();
+        //calender fo
+        myCalendar = Calendar.getInstance();
+        date = new DatePickerDialog.OnDateSetListener() {
 
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel_bdate();
+
+            }
+
+        };
+
+        myCalendar_h = Calendar.getInstance();
+        date_h = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar_h.set(Calendar.YEAR, year);
+                myCalendar_h.set(Calendar.MONTH, monthOfYear);
+                myCalendar_h.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel_hdate();
+            }
+        };
     }
 
     private void LoadUILisners() {
@@ -152,14 +192,45 @@ public class Person_details extends AppCompatActivity {
                 // TODO Auto-generated method stub
             }
         });
+
+        select_birthdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(Person_details.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        select_hiredate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Person_details.this, "Helloo", Toast.LENGTH_SHORT).show();
+                new DatePickerDialog(Person_details.this,date_h,myCalendar_h.get(Calendar.YEAR),
+                        myCalendar_h.get(Calendar.MONTH),myCalendar_h.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+    }
+    private void updateLabel_bdate()
+    {
+        String myFormat = "dd/MM/yyyy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        et_date_of_birth.setText(sdf.format(myCalendar.getTime()));
+    }
+    private void updateLabel_hdate()
+    {
+        String myFormat_b = "dd/MM/yyyy"; //In which you need put here
+        SimpleDateFormat sdf_b = new SimpleDateFormat(myFormat_b, Locale.US);
+
+        et_date_of_hire.setText(sdf_b.format(myCalendar_h.getTime()));
     }
 
     /**
      * Validating form
      */
-    private void submitForm() {
-
-
+    private void submitForm()
+    {
         if (!validateFullName()) {
             return;
         } else if (!validateEmail()) {
@@ -421,6 +492,15 @@ public class Person_details extends AppCompatActivity {
         rg_gender = (RadioGroup) findViewById(R.id.rg_gender);
         radio0 = (RadioButton) findViewById(R.id.radio0);
         radio1 = (RadioButton) findViewById(R.id.radio1);
+
+        select_birthdate = (ImageButton) findViewById(R.id.select_birthdate);
+        select_hiredate = (ImageButton) findViewById(R.id.select_hiredate);
+
+
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
 
 
     }

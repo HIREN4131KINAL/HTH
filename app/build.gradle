@@ -26,4 +26,5 @@ dependencies {
     compile 'com.android.support:design:+'
     compile 'com.android.support:support-v4:+'
     compile 'com.android.support:recyclerview-v7:+'
+    compile 'com.code-troopers.betterpickers:library:2.5.3'
 }

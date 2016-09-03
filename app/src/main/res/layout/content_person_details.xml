@@ -148,10 +148,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="date"
+                    android:enabled="false"
                     android:hint="@string/birth_date" />
             </android.support.design.widget.TextInputLayout>
 
             <ImageButton
+                android:id="@+id/select_birthdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -189,10 +191,12 @@
                     android:layout_width="match_parent"
                     android:inputType="date"
                     android:layout_height="wrap_content"
+                    android:enabled="false"
                     android:hint="@string/hiredate" />
             </android.support.design.widget.TextInputLayout>
 
             <ImageButton
+                android:id="@+id/select_hiredate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
