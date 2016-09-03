@@ -152,6 +152,7 @@
                     android:hint="@string/birth_date" />
             </android.support.design.widget.TextInputLayout>
 
+            <!--FOR BIRTH DATE DATE-->
             <ImageButton
                 android:id="@+id/select_birthdate"
                 android:layout_width="wrap_content"
@@ -195,6 +196,7 @@
                     android:hint="@string/hiredate" />
             </android.support.design.widget.TextInputLayout>
 
+            <!--FOR HIRE DATE-->
             <ImageButton
                 android:id="@+id/select_hiredate"
                 android:layout_width="wrap_content"
