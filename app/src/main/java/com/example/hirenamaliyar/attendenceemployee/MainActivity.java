@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
 
         } else if (view.getId() == R.id.bt_show_data) {
-            Intent j = new Intent(MainActivity.this, Person_details.class);
+            Intent j = new Intent(MainActivity.this, ShowAllData.class);
             j.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(j);
 

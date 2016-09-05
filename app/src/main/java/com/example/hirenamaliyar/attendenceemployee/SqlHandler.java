@@ -16,7 +16,11 @@ public class SqlHandler {
         this.context = context;
         dbHelper = new SqlDbHelper(context, DATABASE_NAME, null,
                 DATABASE_VERSION);
-        sqlDatabase = dbHelper.getWritableDatabase();
+        try {
+            sqlDatabase = dbHelper.getWritableDatabase();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //for exexecute query
