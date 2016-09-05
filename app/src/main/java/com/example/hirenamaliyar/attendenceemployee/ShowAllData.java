@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -22,22 +23,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ShowAllData extends AppCompatActivity {
-
-    //getting sql database values
-    GettingSqlData gettingSqlData = new GettingSqlData(this);
     //recycler list view
     RecyclerView rv;
-    //Arralist is saving data from sql lite database
-    public ArrayList<HashMap<String, String>> emloyee_info = gettingSqlData.getResults();
 
+    public ArrayList<HashMap<String, String>> emloyee_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all_data);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -50,11 +47,29 @@ public class ShowAllData extends AppCompatActivity {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         rv.setLayoutManager(mLayoutManager);
         // seting custom adapter
+//getting sql database values
+        GettingSqlData gettingSqlData = new GettingSqlData(this);
 
+        //Arralist is saving data from sql lite database
+        emloyee_info = gettingSqlData.getResults();
+
+        Log.e("onCreate: ", emloyee_info + "");
 
         // seting custom adapter
         if (emloyee_info != null) {
             rv.setAdapter(new MyAdapter(emloyee_info));
+        } else {
+            Toast.makeText(ShowAllData.this, "Arraylist is empty", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -72,7 +87,7 @@ public class ShowAllData extends AppCompatActivity {
         public class ViewHolder extends RecyclerView.ViewHolder {
             // each data item is just a string in this case
             private TextView tv_fullname, tv_contact, tv_designation;
-            private RelativeLayout rel_layout;
+            // private RelativeLayout rel_layout;
 
             public ViewHolder(View itemView) {
                 super(itemView);
@@ -80,7 +95,7 @@ public class ShowAllData extends AppCompatActivity {
                 tv_fullname = (TextView) itemView.findViewById(R.id.tv_fullname);
                 tv_contact = (TextView) itemView.findViewById(R.id.tv_contact);
                 tv_designation = (TextView) itemView.findViewById(R.id.tv_designation);
-                rel_layout = (RelativeLayout) itemView.findViewById(R.id.rel_layout);
+                // rel_layout = (RelativeLayout) itemView.findViewById(R.id.rel_layout);
             }
         }
 
@@ -103,6 +118,7 @@ public class ShowAllData extends AppCompatActivity {
             final String FullName = mDataset.get(position).get("name");
             final String ContactNo = mDataset.get(position).get("phone_number");
             final String Designation = mDataset.get(position).get("designation");
+            Log.e("onBindViewHolder: ", FullName + "");
 
             holder.tv_fullname.setText(FullName);
             holder.tv_contact.setText(ContactNo);

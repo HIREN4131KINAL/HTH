@@ -1,6 +1,7 @@
 package com.example.hirenamaliyar.attendenceemployee;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.nfc.tech.NfcBarcode;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -10,6 +11,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -259,7 +261,7 @@ public class Person_details extends AppCompatActivity implements DatePickerDialo
         } else if (!validateSalary()) {
             return;
         } else {
-            Toast.makeText(Person_details.this, "Submit successfully", Toast.LENGTH_SHORT).show();
+
             str_fullname = et_fullname.getText().toString();
             str_email = et_email.getText().toString();
             str_contact_no = et_contact_no.getText().toString();
@@ -295,6 +297,9 @@ public class Person_details extends AppCompatActivity implements DatePickerDialo
 
             sqlHandler.executeQuery(insert);
 
+            Intent s = new Intent(getApplicationContext(), Person_details.class);
+            startActivity(s);
+            finish();
 
         }
 
@@ -546,5 +551,17 @@ public class Person_details extends AppCompatActivity implements DatePickerDialo
             }
         }
     }
+
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
 

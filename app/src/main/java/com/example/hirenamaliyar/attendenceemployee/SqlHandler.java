@@ -3,6 +3,7 @@ package com.example.hirenamaliyar.attendenceemployee;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 public class SqlHandler {
 
@@ -33,7 +34,7 @@ public class SqlHandler {
 
             sqlDatabase = dbHelper.getWritableDatabase();
             sqlDatabase.execSQL(query);
-
+            Toast.makeText(context, "Submit successfully", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
 
             System.out.println("DATABASE ERROR " + e);

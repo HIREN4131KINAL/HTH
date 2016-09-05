@@ -45,6 +45,8 @@ public class GettingSqlData {
 
         Cursor c = db.selectQuery(query); //function to retrieve all values from a table- written in MyDb.java file
 
+        c.moveToFirst();
+
         Log.e("getResults: ", c + "");
 
 
@@ -55,7 +57,6 @@ public class GettingSqlData {
             if (len > 0) {
 
                 do {
-
                     // Storing each Sql lite database item values in variable
                     String fullname = c.getString(c.getColumnIndex(KEY_FullName));
                     String email = c.getString(c.getColumnIndex(KEY_Email));
@@ -74,7 +75,6 @@ public class GettingSqlData {
                     // creating new HashMap
                     HashMap<String, String> map = new HashMap<String, String>();
 
-
                     // adding each child node to HashMap key => value
                     map.put(KEY_FullName, fullname);
                     map.put(KEY_Email, email);
@@ -89,13 +89,10 @@ public class GettingSqlData {
                     map.put(KEY_PassportNo, passportNO);
                     map.put(KEY_Nationality, nationality);
 
-
                     // adding HashList to ArrayList
                     resultList.add(map);
 
-
                 } while (c.moveToNext());
-
 
             } else {
                 Toast.makeText(mcontaxt, "No data found", Toast.LENGTH_SHORT).show();
