@@ -1,15 +1,10 @@
 package com.example.hirenamaliyar.attendenceemployee;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -34,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
 
         } else if (view.getId() == R.id.bt_show_data) {
-            Intent j = new Intent(MainActivity.this, ShowAllData.class);
+            Intent j = new Intent(MainActivity.this, ShowAllEmployee.class);
             j.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(j);
 

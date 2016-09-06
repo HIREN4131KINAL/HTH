@@ -1,17 +1,16 @@
 package com.example.hirenamaliyar.attendenceemployee;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ShowAllData extends AppCompatActivity {
+public class ShowAllEmployee extends AppCompatActivity {
     //recycler list view
     RecyclerView rv;
 
@@ -47,7 +46,7 @@ public class ShowAllData extends AppCompatActivity {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         rv.setLayoutManager(mLayoutManager);
         // seting custom adapter
-//getting sql database values
+        //getting sql database values
         GettingSqlData gettingSqlData = new GettingSqlData(this);
 
         //Arralist is saving data from sql lite database
@@ -59,14 +58,25 @@ public class ShowAllData extends AppCompatActivity {
         if (emloyee_info != null) {
             rv.setAdapter(new MyAdapter(emloyee_info));
         } else {
-            Toast.makeText(ShowAllData.this, "Arraylist is empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ShowAllEmployee.this, "Arraylist is empty", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_show_all_data, menu);
+        return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
+                return true;
+            case R.id.action_search:
+                Intent i = new Intent(this, EmployeeSearch.class);
+                startActivity(i);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -87,15 +97,16 @@ public class ShowAllData extends AppCompatActivity {
         public class ViewHolder extends RecyclerView.ViewHolder {
             // each data item is just a string in this case
             private TextView tv_fullname, tv_contact, tv_designation;
-            // private RelativeLayout rel_layout;
+            private RelativeLayout rel_layout;
 
+            @SuppressLint("WrongViewCast")
             public ViewHolder(View itemView) {
                 super(itemView);
 
                 tv_fullname = (TextView) itemView.findViewById(R.id.tv_fullname);
                 tv_contact = (TextView) itemView.findViewById(R.id.tv_contact);
                 tv_designation = (TextView) itemView.findViewById(R.id.tv_designation);
-                // rel_layout = (RelativeLayout) itemView.findViewById(R.id.rel_layout);
+                rel_layout = (RelativeLayout) itemView.findViewById(R.id.rel_layout);
             }
         }
 
@@ -118,25 +129,25 @@ public class ShowAllData extends AppCompatActivity {
             final String FullName = mDataset.get(position).get("name");
             final String ContactNo = mDataset.get(position).get("phone_number");
             final String Designation = mDataset.get(position).get("designation");
-            Log.e("onBindViewHolder: ", FullName + "");
+
 
             holder.tv_fullname.setText(FullName);
             holder.tv_contact.setText(ContactNo);
             holder.tv_designation.setText(Designation);
 
-            //    holder.total_papers.setText(Paper_count);
 
-          /*  holder.rel_layout.setOnClickListener(new View.OnClickListener() {
+            holder.rel_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    BranchName = branchList.get(position).get(TAG_BRANCH);
-                    Log.d("onItemClick: ", BranchName);
-                    Intent i = new Intent(getActivity(), Activity_Semester.class);
-                    i.putExtra("branch_name", BranchName);
+                    int PARENT_POSITION;
+                    PARENT_POSITION = position;
+                    Log.d("onItemClick: ", PARENT_POSITION + "");
+                    Intent i = new Intent(getApplicationContext(), EmployeeFullDetails.class);
+                    i.putExtra("parent_position", PARENT_POSITION);
                     startActivity(i);
 
                 }
-            });*/
+            });
 
         }
 
