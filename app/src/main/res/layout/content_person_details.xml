@@ -26,10 +26,10 @@
                 android:id="@+id/et_fullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/fullname"
                 android:autoText="true"
-                android:nextFocusUp="@style/aosp_ampm_label"
-                android:inputType="textPersonName" />
+                android:hint="@string/fullname"
+                android:inputType="textPersonName"
+                android:nextFocusUp="@style/aosp_ampm_label" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -102,9 +102,9 @@
                 <EditText
                     android:id="@+id/et_gender"
                     android:layout_width="match_parent"
-                    android:inputType="text"
                     android:layout_height="wrap_content"
-                    android:hint="@string/Gender" />
+                    android:hint="@string/Gender"
+                    android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
 
@@ -149,9 +149,9 @@
                     android:id="@+id/et_date_of_birth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date"
                     android:enabled="false"
-                    android:hint="@string/birth_date" />
+                    android:hint="@string/birth_date"
+                    android:inputType="date" />
             </android.support.design.widget.TextInputLayout>
 
             <!--FOR BIRTH DATE DATE-->
@@ -172,9 +172,9 @@
             <EditText
                 android:id="@+id/et_emirates_id"
                 android:layout_width="match_parent"
-                android:inputType="text"
                 android:layout_height="wrap_content"
-                android:hint="@string/emirates_id" />
+                android:hint="@string/emirates_id"
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
         <LinearLayout
@@ -192,10 +192,10 @@
                 <EditText
                     android:id="@+id/et_date_of_hire"
                     android:layout_width="match_parent"
-                    android:inputType="date"
                     android:layout_height="wrap_content"
                     android:enabled="false"
-                    android:hint="@string/hiredate" />
+                    android:hint="@string/hiredate"
+                    android:inputType="date" />
             </android.support.design.widget.TextInputLayout>
 
             <!--FOR HIRE DATE-->
@@ -216,9 +216,9 @@
             <EditText
                 android:id="@+id/et_nationality"
                 android:layout_width="match_parent"
-                android:inputType="text"
                 android:layout_height="wrap_content"
-                android:hint="@string/nationality" />
+                android:hint="@string/nationality"
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -229,9 +229,9 @@
             <EditText
                 android:id="@+id/et_salary"
                 android:layout_width="match_parent"
-                android:inputType="text"
                 android:layout_height="wrap_content"
-                android:hint="@string/salary" />
+                android:hint="@string/salary"
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -244,20 +244,9 @@
                 android:id="@+id/et_passport_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="@string/passport_no" />
+                android:hint="@string/passport_no"
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
-        <!--
-                <DatePicker
-                    android:id="@+id/dp_hire_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <DatePicker
-                    android:id="@+id/dp_birth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/birth_date" />-->
 
 
         <LinearLayout

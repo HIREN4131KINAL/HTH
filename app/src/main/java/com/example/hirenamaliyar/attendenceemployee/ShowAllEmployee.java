@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ public class ShowAllEmployee extends AppCompatActivity {
     //recycler list view
     RecyclerView rv;
 
-    public ArrayList<HashMap<String, String>> emloyee_info;
+    public static ArrayList<HashMap<String, String>> emloyee_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +84,7 @@ public class ShowAllEmployee extends AppCompatActivity {
         }
     }
 
-    // adapter class for Fragment home
+    // adapter class for ShowAllEmployee
     private class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         private ArrayList<HashMap<String, String>> mDataset;
 
@@ -97,7 +98,7 @@ public class ShowAllEmployee extends AppCompatActivity {
         public class ViewHolder extends RecyclerView.ViewHolder {
             // each data item is just a string in this case
             private TextView tv_fullname, tv_contact, tv_designation;
-            private RelativeLayout rel_layout;
+            private LinearLayout lr_layout;
 
             @SuppressLint("WrongViewCast")
             public ViewHolder(View itemView) {
@@ -106,7 +107,7 @@ public class ShowAllEmployee extends AppCompatActivity {
                 tv_fullname = (TextView) itemView.findViewById(R.id.tv_fullname);
                 tv_contact = (TextView) itemView.findViewById(R.id.tv_contact);
                 tv_designation = (TextView) itemView.findViewById(R.id.tv_designation);
-                rel_layout = (RelativeLayout) itemView.findViewById(R.id.rel_layout);
+                lr_layout = (LinearLayout) itemView.findViewById(R.id.lr_layout);
             }
         }
 
@@ -136,12 +137,13 @@ public class ShowAllEmployee extends AppCompatActivity {
             holder.tv_designation.setText(Designation);
 
 
-            holder.rel_layout.setOnClickListener(new View.OnClickListener() {
+            holder.lr_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int PARENT_POSITION;
                     PARENT_POSITION = position;
                     Log.d("onItemClick: ", PARENT_POSITION + "");
+                    Toast.makeText(getApplicationContext(), "Parent position is " + PARENT_POSITION, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), EmployeeFullDetails.class);
                     i.putExtra("parent_position", PARENT_POSITION);
                     startActivity(i);

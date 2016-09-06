@@ -18,15 +18,26 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
-            android:elevation="6dp"
-            app:layout_collapseMode="pin"
-            app:layout_scrollFlags="snap|scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:hint="Search..."
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textSize="20sp" />
+        </android.support.v7.widget.Toolbar>
+
 
     </android.support.design.widget.AppBarLayout>
 
 
-    <include layout="@layout/content_employee_search" />
+    <include layout="@layout/content_show_all_data" />
 
 </android.support.design.widget.CoordinatorLayout>
